@@ -13,30 +13,31 @@ public class TestGetMethod {
 	@Test
 	public void testGetPingAlive() {
 		String url = "http://localhost:8080/laptop-bag/webapi/api/ping/hello";
-		RestResponse response = RestApiHelper.performGetRequest(url,null);
+		RestResponse response = RestApiHelper.performGetRequest(url, null);
 		Assert.assertEquals(HttpStatus.SC_OK, response.getStatusCode());
 		Assert.assertEquals("Hi! hello", response.getResponseBody());
 	}
+
 	@Test
-	public void testGetAll(){
+	public void testGetAll() {
 		String url = "http://localhost:8080/laptop-bag/webapi/api/all";
-		Map<String,String> headers = new HashMap<String,String>();
+		Map<String, String> headers = new HashMap<String, String>();
 		headers.put("Accept", "application/json");
-		RestResponse response = RestApiHelper.performGetRequest(url,headers);
-		Assert.assertTrue("Expected status code not present",HttpStatus.SC_OK ==response.getStatusCode()|| 
-				HttpStatus.SC_NO_CONTENT== response.getStatusCode()
-				);
+		RestResponse response = RestApiHelper.performGetRequest(url, headers);
+		Assert.assertTrue("Expected status code not present",
+				HttpStatus.SC_OK == response.getStatusCode()
+						|| HttpStatus.SC_NO_CONTENT == response.getStatusCode());
 	}
-	
+
 	@Test
-	public void testGetFindwithID(){
+	public void testGetFindwithID() {
 		String url = "http://localhost:8080/laptop-bag/webapi/api/find/127";
-		Map<String,String> headers = new HashMap<String,String>();
+		Map<String, String> headers = new HashMap<String, String>();
 		headers.put("Accept", "application/json");
-		RestResponse response = RestApiHelper.performGetRequest(url,headers);
-		Assert.assertTrue("Expected status code not present",HttpStatus.SC_NOT_FOUND ==response.getStatusCode()|| 
-				HttpStatus.SC_NO_CONTENT== response.getStatusCode()
-				);
+		RestResponse response = RestApiHelper.performGetRequest(url, headers);
+		Assert.assertTrue("Expected status code not present",
+				HttpStatus.SC_NOT_FOUND == response.getStatusCode()
+						|| HttpStatus.SC_NO_CONTENT == response.getStatusCode());
 	}
 
 }
