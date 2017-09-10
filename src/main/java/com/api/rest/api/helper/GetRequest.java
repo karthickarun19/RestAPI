@@ -37,7 +37,7 @@ public class GetRequest {
 		 * response.close(); } catch(Exception e){ e.printStackTrace(); }
 		 */
 		RestResponse response = RestApiHelper
-				.performGetRequest("http://localhost:8080/laptop-bag/webapi/api/ping/hello");
+				.performGetRequest("http://localhost:8080/laptop-bag/webapi/api/ping/hello",null);
 		System.out.println(response.toString());
 	}
 }
